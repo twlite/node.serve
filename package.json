@@ -1,0 +1,40 @@
+{
+  "name": "serve.node",
+  "version": "0.0.2",
+  "main": "index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "description": "A simple http server for node.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "example": "pnpm build && node example/serve.js",
+    "example:esm": "pnpm build && node example/serve.mjs",
+    "benchmark": "autocannon -c 100 -d 5 -p 10 http://localhost:8000",
+    "test": "node ./__test__/serve.mjs",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "http",
+    "server",
+    "node",
+    "serve"
+  ],
+  "author": "twlite",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twlite/node.serve.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "autocannon": "^7.12.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "undici": "^5.27.2"
+  }
+}
